@@ -4,11 +4,22 @@
     nixosModules.default = { config, lib, pkgs, ... }: 
       let
         core = import ./core.nix { inherit pkgs; };
-        isDev = builtins.getEnv "NIX_DEV_DOTFILES" == "1";
-        # The "Smart Switch": Symlink in dev, Copy in pure
+        devPath = builtins.getEnv "NIX_DEV_DOTFILES";
+        
+        # Strict validation: Path exists + is a git repo + correct remote
+        isDev = 
+          let
+            gitConfigPath = "${devPath}/.git/config";
+            expectedRemote = "url = https://github.com/Nihilicht/tsukuyomi-env.git";
+          in
+            devPath != "" 
+            && builtins.pathExists gitConfigPath
+            && lib.strings.hasInfix expectedRemote (builtins.readFile gitConfigPath);
+        
+        # The "Smart Switch": Symlink to local path in dev, Copy to Nix store in pure
         mkSource = path:
           if isDev
-          then config.lib.file.mkOutOfStoreSymlink "${self.outPath}/${path}"
+          then config.lib.file.mkOutOfStoreSymlink "${devPath}/${path}"
           else ./${path};
       in {
         options.myEnv.enable = lib.mkEnableOption "My Environment";
