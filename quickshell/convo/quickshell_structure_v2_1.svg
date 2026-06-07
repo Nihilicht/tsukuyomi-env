@@ -1,0 +1,216 @@
+<svg width="100%" viewBox="0 0 680 1060" role="img">
+  <title>Quickshell revised file structure v2</title>
+  <desc>Revised file organization for Quickshell with native plugin awareness, renamed components, and explicit clock archipelago layout.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+  </defs>
+
+  <!-- Root -->
+  <g class="c-gray">
+    <rect x="250" y="16" width="180" height="36" rx="8" stroke-width="0.5"/>
+    <text class="th" x="340" y="34" text-anchor="middle" dominant-baseline="central">~/.config/quickshell/</text>
+  </g>
+  <line x1="340" y1="52" x2="340" y2="72" class="arr" marker-end="url(#arrow)"/>
+
+  <!-- shell.qml -->
+  <g class="c-purple">
+    <rect x="274" y="72" width="132" height="34" rx="8" stroke-width="0.5"/>
+    <text class="th" x="340" y="89" text-anchor="middle" dominant-baseline="central">shell.qml</text>
+  </g>
+  <line x1="340" y1="106" x2="340" y2="118" stroke="var(--b)" stroke-width="0.5"/>
+
+  <!-- Column headers row -->
+  <!-- bar/ -->
+  <g class="c-blue">
+    <rect x="18" y="118" width="118" height="34" rx="8" stroke-width="0.5"/>
+    <text class="th" x="77" y="135" text-anchor="middle" dominant-baseline="central">bar/</text>
+  </g>
+  <!-- services/ -->
+  <g class="c-teal">
+    <rect x="150" y="118" width="118" height="34" rx="8" stroke-width="0.5"/>
+    <text class="th" x="209" y="135" text-anchor="middle" dominant-baseline="central">services/</text>
+  </g>
+  <!-- overlays/ -->
+  <g class="c-coral">
+    <rect x="282" y="118" width="118" height="34" rx="8" stroke-width="0.5"/>
+    <text class="th" x="341" y="135" text-anchor="middle" dominant-baseline="central">overlays/</text>
+  </g>
+  <!-- widgets/ -->
+  <g class="c-amber">
+    <rect x="414" y="118" width="118" height="34" rx="8" stroke-width="0.5"/>
+    <text class="th" x="473" y="135" text-anchor="middle" dominant-baseline="central">widgets/</text>
+  </g>
+  <!-- theme/ -->
+  <g class="c-gray">
+    <rect x="546" y="118" width="118" height="34" rx="8" stroke-width="0.5"/>
+    <text class="th" x="605" y="135" text-anchor="middle" dominant-baseline="central">theme/</text>
+  </g>
+
+  <!-- connector from shell.qml -->
+  <polyline points="340,118 77,118" fill="none" stroke="var(--b)" stroke-width="0.5"/>
+  <polyline points="340,118 209,118" fill="none" stroke="var(--b)" stroke-width="0.5"/>
+  <polyline points="340,118 341,118" fill="none" stroke="var(--b)" stroke-width="0.5"/>
+  <polyline points="340,118 473,118" fill="none" stroke="var(--b)" stroke-width="0.5"/>
+  <polyline points="340,118 605,118" fill="none" stroke="var(--b)" stroke-width="0.5"/>
+
+  <!-- ===== BAR column ===== -->
+  <line x1="77" y1="152" x2="77" y2="167" stroke="var(--b)" stroke-width="0.5"/>
+  <g class="c-blue"><rect x="18" y="167" width="118" height="26" rx="6" stroke-width="0.5"/>
+    <text class="ts" x="77" y="180" text-anchor="middle" dominant-baseline="central">TopBar.qml</text></g>
+  <line x1="77" y1="193" x2="77" y2="207" stroke="var(--b)" stroke-width="0.5"/>
+  <g class="c-blue"><rect x="18" y="207" width="118" height="26" rx="6" stroke-width="0.5"/>
+    <text class="ts" x="77" y="220" text-anchor="middle" dominant-baseline="central">ScreenFrame.qml</text></g>
+
+  <!-- sub: continents/ -->
+  <text class="ts" x="77" y="248" text-anchor="middle" opacity="0.55">continents/</text>
+  <line x1="77" y1="255" x2="77" y2="269" stroke="var(--b)" stroke-width="0.5"/>
+  <g class="c-blue"><rect x="18" y="269" width="118" height="26" rx="6" stroke-width="0.5"/>
+    <text class="ts" x="77" y="282" text-anchor="middle" dominant-baseline="central">SysInfo.qml</text></g>
+  <line x1="77" y1="295" x2="77" y2="309" stroke="var(--b)" stroke-width="0.5"/>
+  <g class="c-blue"><rect x="18" y="309" width="118" height="26" rx="6" stroke-width="0.5"/>
+    <text class="ts" x="77" y="322" text-anchor="middle" dominant-baseline="central">SysActions.qml</text></g>
+
+  <!-- sub: islands/ -->
+  <text class="ts" x="77" y="350" text-anchor="middle" opacity="0.55">islands/</text>
+  <line x1="77" y1="357" x2="77" y2="371" stroke="var(--b)" stroke-width="0.5"/>
+  <g class="c-blue"><rect x="18" y="371" width="118" height="26" rx="6" stroke-width="0.5"/>
+    <text class="ts" x="77" y="384" text-anchor="middle" dominant-baseline="central">Workspaces.qml</text></g>
+  <line x1="77" y1="397" x2="77" y2="411" stroke="var(--b)" stroke-width="0.5"/>
+
+  <!-- Archipelago group — highlighted -->
+  <rect x="14" y="411" width="126" height="86" rx="8" fill="none" stroke="var(--b)" stroke-width="0.5" stroke-dasharray="4 3" opacity="0.5"/>
+  <text class="ts" x="77" y="424" text-anchor="middle" opacity="0.55">Archipelago</text>
+  <g class="c-blue"><rect x="22" y="429" width="110" height="22" rx="5" stroke-width="0.5"/>
+    <text class="ts" x="77" y="440" text-anchor="middle" dominant-baseline="central">CaffeineToggle.qml</text></g>
+  <g class="c-blue"><rect x="22" y="455" width="110" height="22" rx="5" stroke-width="0.5"/>
+    <text class="ts" x="77" y="466" text-anchor="middle" dominant-baseline="central">Clock.qml</text></g>
+  <g class="c-blue"><rect x="22" y="481" width="110" height="22" rx="5" stroke-width="0.5"/>
+    <text class="ts" x="77" y="492" text-anchor="middle" dominant-baseline="central">DndToggle.qml</text></g>
+
+  <line x1="77" y1="497" x2="77" y2="511" stroke="var(--b)" stroke-width="0.5"/>
+  <g class="c-blue"><rect x="18" y="511" width="118" height="26" rx="6" stroke-width="0.5"/>
+    <text class="ts" x="77" y="524" text-anchor="middle" dominant-baseline="central">SystemTray.qml</text></g>
+
+  <!-- ===== SERVICES column ===== -->
+  <line x1="209" y1="152" x2="209" y2="167" stroke="var(--b)" stroke-width="0.5"/>
+  <!-- SystemMetrics — highlighted as the only custom service -->
+  <rect x="146" y="163" width="126" height="34" rx="8" fill="none" stroke="var(--b)" stroke-width="1" stroke-dasharray="4 3" opacity="0.6"/>
+  <g class="c-teal"><rect x="150" y="167" width="118" height="26" rx="6" stroke-width="0.5"/>
+    <text class="ts" x="209" y="180" text-anchor="middle" dominant-baseline="central">SystemMetrics.qml</text></g>
+
+  <text class="ts" x="209" y="212" text-anchor="middle" opacity="0.5">native plugins</text>
+  <text class="ts" x="209" y="227" text-anchor="middle" opacity="0.5">(no wrapper needed)</text>
+
+  <!-- native plugin pills -->
+  <rect x="150" y="238" width="118" height="24" rx="6" fill="none" stroke="var(--b)" stroke-width="0.5" opacity="0.4"/>
+  <text class="ts" x="209" y="250" text-anchor="middle" dominant-baseline="central" opacity="0.6">Hyprland.*</text>
+  <rect x="150" y="266" width="118" height="24" rx="6" fill="none" stroke="var(--b)" stroke-width="0.5" opacity="0.4"/>
+  <text class="ts" x="209" y="278" text-anchor="middle" dominant-baseline="central" opacity="0.6">NetworkManager.*</text>
+  <rect x="150" y="294" width="118" height="24" rx="6" fill="none" stroke="var(--b)" stroke-width="0.5" opacity="0.4"/>
+  <text class="ts" x="209" y="306" text-anchor="middle" dominant-baseline="central" opacity="0.6">Wireplumber.*</text>
+
+  <!-- ===== OVERLAYS column ===== -->
+  <line x1="341" y1="152" x2="341" y2="167" stroke="var(--b)" stroke-width="0.5"/>
+  <g class="c-coral"><rect x="282" y="167" width="118" height="26" rx="6" stroke-width="0.5"/>
+    <text class="ts" x="341" y="180" text-anchor="middle" dominant-baseline="central">PowerMenu.qml</text></g>
+  <line x1="341" y1="193" x2="341" y2="207" stroke="var(--b)" stroke-width="0.5"/>
+  <g class="c-coral"><rect x="282" y="207" width="118" height="26" rx="6" stroke-width="0.5"/>
+    <text class="ts" x="341" y="220" text-anchor="middle" dominant-baseline="central">NetworkControl.qml</text></g>
+  <line x1="341" y1="233" x2="341" y2="247" stroke="var(--b)" stroke-width="0.5"/>
+  <g class="c-coral"><rect x="282" y="247" width="118" height="26" rx="6" stroke-width="0.5"/>
+    <text class="ts" x="341" y="260" text-anchor="middle" dominant-baseline="central">VolumeControl.qml</text></g>
+  <line x1="341" y1="273" x2="341" y2="287" stroke="var(--b)" stroke-width="0.5"/>
+  <g class="c-coral"><rect x="282" y="287" width="118" height="26" rx="6" stroke-width="0.5"/>
+    <text class="ts" x="341" y="300" text-anchor="middle" dominant-baseline="central">SysInfoOverlay.qml</text></g>
+  <line x1="341" y1="313" x2="341" y2="327" stroke="var(--b)" stroke-width="0.5"/>
+  <g class="c-coral"><rect x="282" y="327" width="118" height="26" rx="6" stroke-width="0.5"/>
+    <text class="ts" x="341" y="340" text-anchor="middle" dominant-baseline="central">Calendar.qml</text></g>
+  <line x1="341" y1="353" x2="341" y2="367" stroke="var(--b)" stroke-width="0.5"/>
+  <g class="c-coral"><rect x="282" y="367" width="118" height="26" rx="6" stroke-width="0.5"/>
+    <text class="ts" x="341" y="380" text-anchor="middle" dominant-baseline="central">Launcher.qml</text></g>
+  <line x1="341" y1="393" x2="341" y2="407" stroke="var(--b)" stroke-width="0.5"/>
+  <g class="c-coral"><rect x="282" y="407" width="118" height="26" rx="6" stroke-width="0.5"/>
+    <text class="ts" x="341" y="420" text-anchor="middle" dominant-baseline="central">NotifShade.qml</text></g>
+  <line x1="341" y1="433" x2="341" y2="447" stroke="var(--b)" stroke-width="0.5"/>
+  <g class="c-coral"><rect x="282" y="447" width="118" height="26" rx="6" stroke-width="0.5"/>
+    <text class="ts" x="341" y="460" text-anchor="middle" dominant-baseline="central">OSD.qml</text></g>
+
+  <!-- ===== WIDGETS column ===== -->
+  <line x1="473" y1="152" x2="473" y2="167" stroke="var(--b)" stroke-width="0.5"/>
+  <g class="c-amber"><rect x="414" y="167" width="118" height="26" rx="6" stroke-width="0.5"/>
+    <text class="ts" x="473" y="180" text-anchor="middle" dominant-baseline="central">MetricChip.qml</text></g>
+  <line x1="473" y1="193" x2="473" y2="207" stroke="var(--b)" stroke-width="0.5"/>
+  <g class="c-amber"><rect x="414" y="207" width="118" height="26" rx="6" stroke-width="0.5"/>
+    <text class="ts" x="473" y="220" text-anchor="middle" dominant-baseline="central">LiquidCorner.qml</text></g>
+  <line x1="473" y1="233" x2="473" y2="247" stroke="var(--b)" stroke-width="0.5"/>
+  <g class="c-amber"><rect x="414" y="247" width="118" height="26" rx="6" stroke-width="0.5"/>
+    <text class="ts" x="473" y="260" text-anchor="middle" dominant-baseline="central">RoundToggle.qml</text></g>
+  <line x1="473" y1="273" x2="473" y2="287" stroke="var(--b)" stroke-width="0.5"/>
+  <g class="c-amber"><rect x="414" y="287" width="118" height="26" rx="6" stroke-width="0.5"/>
+    <text class="ts" x="473" y="300" text-anchor="middle" dominant-baseline="central">SparkGraph.qml</text></g>
+  <line x1="473" y1="313" x2="473" y2="327" stroke="var(--b)" stroke-width="0.5"/>
+  <g class="c-amber"><rect x="414" y="327" width="118" height="26" rx="6" stroke-width="0.5"/>
+    <text class="ts" x="473" y="340" text-anchor="middle" dominant-baseline="central">HoverTooltip.qml</text></g>
+  <line x1="473" y1="353" x2="473" y2="367" stroke="var(--b)" stroke-width="0.5"/>
+  <g class="c-amber"><rect x="414" y="367" width="118" height="26" rx="6" stroke-width="0.5"/>
+    <text class="ts" x="473" y="380" text-anchor="middle" dominant-baseline="central">PillTab.qml</text></g>
+  <line x1="473" y1="393" x2="473" y2="407" stroke="var(--b)" stroke-width="0.5"/>
+  <g class="c-amber"><rect x="414" y="407" width="118" height="26" rx="6" stroke-width="0.5"/>
+    <text class="ts" x="473" y="420" text-anchor="middle" dominant-baseline="central">RippleButton.qml</text></g>
+  <line x1="473" y1="433" x2="473" y2="447" stroke="var(--b)" stroke-width="0.5"/>
+  <g class="c-amber"><rect x="414" y="447" width="118" height="26" rx="6" stroke-width="0.5"/>
+    <text class="ts" x="473" y="460" text-anchor="middle" dominant-baseline="central">SignalBar.qml</text></g>
+
+  <!-- ===== THEME column ===== -->
+  <line x1="605" y1="152" x2="605" y2="167" stroke="var(--b)" stroke-width="0.5"/>
+  <g class="c-gray"><rect x="546" y="167" width="118" height="26" rx="6" stroke-width="0.5"/>
+    <text class="ts" x="605" y="180" text-anchor="middle" dominant-baseline="central">Palette.qml</text></g>
+  <line x1="605" y1="193" x2="605" y2="207" stroke="var(--b)" stroke-width="0.5"/>
+  <g class="c-gray"><rect x="546" y="207" width="118" height="26" rx="6" stroke-width="0.5"/>
+    <text class="ts" x="605" y="220" text-anchor="middle" dominant-baseline="central">Typography.qml</text></g>
+  <line x1="605" y1="233" x2="605" y2="247" stroke="var(--b)" stroke-width="0.5"/>
+  <g class="c-gray"><rect x="546" y="247" width="118" height="26" rx="6" stroke-width="0.5"/>
+    <text class="ts" x="605" y="260" text-anchor="middle" dominant-baseline="central">Easing.qml</text></g>
+  <line x1="605" y1="273" x2="605" y2="287" stroke="var(--b)" stroke-width="0.5"/>
+  <g class="c-gray"><rect x="546" y="287" width="118" height="26" rx="6" stroke-width="0.5"/>
+    <text class="ts" x="605" y="300" text-anchor="middle" dominant-baseline="central">Sizing.qml</text></g>
+
+  <!-- Archipelago layout callout -->
+  <rect x="40" y="565" width="600" height="64" rx="10" fill="none" stroke="var(--b)" stroke-width="0.5" opacity="0.4"/>
+  <text class="ts" x="56" y="584" dominant-baseline="central" opacity="0.6">Center archipelago layout (left → right):</text>
+  <g class="c-teal"><rect x="56" y="595" width="118" height="24" rx="6" stroke-width="0.5"/>
+    <text class="ts" x="115" y="607" text-anchor="middle" dominant-baseline="central">CaffeineToggle.qml</text></g>
+  <text class="ts" x="188" y="607" text-anchor="middle" dominant-baseline="central">→</text>
+  <g class="c-purple"><rect x="202" y="595" width="80" height="24" rx="6" stroke-width="0.5"/>
+    <text class="ts" x="242" y="607" text-anchor="middle" dominant-baseline="central">Clock.qml</text></g>
+  <text class="ts" x="296" y="607" text-anchor="middle" dominant-baseline="central">→</text>
+  <g class="c-teal"><rect x="310" y="595" width="100" height="24" rx="6" stroke-width="0.5"/>
+    <text class="ts" x="360" y="607" text-anchor="middle" dominant-baseline="central">DndToggle.qml</text></g>
+  <text class="ts" x="470" y="607" text-anchor="middle" dominant-baseline="central" opacity="0.5">all three float as one island</text>
+
+  <!-- Notes -->
+  <text class="ts" x="40" y="654" dominant-baseline="central" opacity="0.8">Key decisions:</text>
+  <text class="ts" x="40" y="676" dominant-baseline="central" opacity="0.65">→  SystemMetrics.qml is the only custom service — single Process, 1s timer, all hw metrics in one read</text>
+  <text class="ts" x="40" y="698" dominant-baseline="central" opacity="0.65">→  Hyprland.*, NetworkManager.*, Wireplumber.* are imported directly — no wrapper files needed</text>
+  <text class="ts" x="40" y="720" dominant-baseline="central" opacity="0.65">→  LiquidCorner.qml (ShaderEffect mask) is shared by ScreenFrame, TopBar, and all overlays</text>
+  <text class="ts" x="40" y="742" dominant-baseline="central" opacity="0.65">→  RoundToggle.qml is the base; CaffeineToggle and DndToggle compose it with their own state logic</text>
+  <text class="ts" x="40" y="764" dominant-baseline="central" opacity="0.65">→  Palette.qml exposes Catppuccin Mocha as pragma Singleton so any file can import Theme 1.0</text>
+
+  <!-- Legend -->
+  <rect x="40" y="795" width="600" height="90" rx="10" fill="none" stroke="var(--b)" stroke-width="0.5" opacity="0.35"/>
+  <text class="ts" x="340" y="813" text-anchor="middle" opacity="0.6">Legend</text>
+  <rect x="60" y="826" width="12" height="12" rx="3" class="c-blue"/>
+  <text class="ts" x="80" y="832" dominant-baseline="central">bar/ — panel structure and layout</text>
+  <rect x="60" y="848" width="12" height="12" rx="3" class="c-teal"/>
+  <text class="ts" x="80" y="854" dominant-baseline="central">services/ — SystemMetrics only; native plugins used directly</text>
+  <rect x="350" y="826" width="12" height="12" rx="3" class="c-coral"/>
+  <text class="ts" x="370" y="832" dominant-baseline="central">overlays/ — PopupWindow / PanelWindow panels</text>
+  <rect x="350" y="848" width="12" height="12" rx="3" class="c-amber"/>
+  <text class="ts" x="370" y="854" dominant-baseline="central">widgets/ — stateless primitives, props-in only</text>
+  <rect x="60" y="870" width="12" height="12" rx="3" class="c-gray"/>
+  <text class="ts" x="80" y="876" dominant-baseline="central">theme/ — Catppuccin Mocha tokens, easing curves, sizing constants</text>
+</svg>
+
+

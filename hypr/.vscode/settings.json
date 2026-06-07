@@ -1,0 +1,8 @@
+{
+    "Lua.workspace.library": [
+        "/nix/store/gpknh1wzhnaaf46ffg7yyad0d9vnwxsr-hyprland-0.55.1/share/hypr/stubs"
+    ],
+    "Lua.diagnostics.disable": [
+        "undefined-field"
+    ]
+}

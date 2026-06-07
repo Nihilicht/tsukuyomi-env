@@ -1,0 +1,4 @@
+singleton SystemMonitor SystemMonitor.qml
+singleton AudioService AudioService.qml
+singleton NetworkService NetworkService.qml
+singleton HyprlandService HyprlandService.qml

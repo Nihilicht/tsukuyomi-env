@@ -1,0 +1,259 @@
+
+<svg width="100%" viewBox="0 0 680 980" role="img">
+  <title>Quickshell project file structure</title>
+  <desc>A structural diagram showing the recommended file organization for a Quickshell desktop shell project, grouped by feature concern.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+  </defs>
+
+  <!-- Root -->
+  <g class="c-gray">
+    <rect x="260" y="16" width="160" height="36" rx="8" stroke-width="0.5"/>
+    <text class="th" x="340" y="34" text-anchor="middle" dominant-baseline="central">~/.config/quickshell/</text>
+  </g>
+  <line x1="340" y1="52" x2="340" y2="72" class="arr" marker-end="url(#arrow)"/>
+
+  <!-- shell.qml -->
+  <g class="c-purple">
+    <rect x="274" y="72" width="132" height="34" rx="8" stroke-width="0.5"/>
+    <text class="th" x="340" y="89" text-anchor="middle" dominant-baseline="central">shell.qml</text>
+  </g>
+  <line x1="340" y1="106" x2="340" y2="118" class="arr" marker-end="url(#arrow)"/>
+
+  <!-- Second level: main folders -->
+  <!-- bar/ -->
+  <g class="c-blue">
+    <rect x="32" y="118" width="110" height="34" rx="8" stroke-width="0.5"/>
+    <text class="th" x="87" y="135" text-anchor="middle" dominant-baseline="central">bar/</text>
+  </g>
+  <!-- services/ -->
+  <g class="c-teal">
+    <rect x="158" y="118" width="110" height="34" rx="8" stroke-width="0.5"/>
+    <text class="th" x="213" y="135" text-anchor="middle" dominant-baseline="central">services/</text>
+  </g>
+  <!-- overlays/ -->
+  <g class="c-coral">
+    <rect x="284" y="118" width="110" height="34" rx="8" stroke-width="0.5"/>
+    <text class="th" x="339" y="135" text-anchor="middle" dominant-baseline="central">overlays/</text>
+  </g>
+  <!-- widgets/ -->
+  <g class="c-amber">
+    <rect x="410" y="118" width="110" height="34" rx="8" stroke-width="0.5"/>
+    <text class="th" x="465" y="135" text-anchor="middle" dominant-baseline="central">widgets/</text>
+  </g>
+  <!-- theme/ -->
+  <g class="c-gray">
+    <rect x="536" y="118" width="110" height="34" rx="8" stroke-width="0.5"/>
+    <text class="th" x="591" y="135" text-anchor="middle" dominant-baseline="central">theme/</text>
+  </g>
+
+  <!-- connector lines from shell.qml -->
+  <polyline points="340,118 87,118" fill="none" stroke="var(--b)" stroke-width="0.5"/>
+  <polyline points="340,118 213,118" fill="none" stroke="var(--b)" stroke-width="0.5"/>
+  <polyline points="340,118 339,118" fill="none" stroke="var(--b)" stroke-width="0.5"/>
+  <polyline points="340,118 465,118" fill="none" stroke="var(--b)" stroke-width="0.5"/>
+  <polyline points="340,118 591,118" fill="none" stroke="var(--b)" stroke-width="0.5"/>
+
+  <!-- ===== BAR column ===== -->
+  <line x1="87" y1="152" x2="87" y2="172" stroke="var(--b)" stroke-width="0.5"/>
+  <g class="c-blue">
+    <rect x="24" y="172" width="126" height="28" rx="6" stroke-width="0.5"/>
+    <text class="ts" x="87" y="186" text-anchor="middle" dominant-baseline="central">TopBar.qml</text>
+  </g>
+  <line x1="87" y1="200" x2="87" y2="214" stroke="var(--b)" stroke-width="0.5"/>
+  <g class="c-blue">
+    <rect x="24" y="214" width="126" height="28" rx="6" stroke-width="0.5"/>
+    <text class="ts" x="87" y="228" text-anchor="middle" dominant-baseline="central">ScreenFrame.qml</text>
+  </g>
+  <!-- sub-label bar/ -->
+  <text class="ts" x="87" y="258" text-anchor="middle" dominant-baseline="central" opacity="0.6">continents/</text>
+  <line x1="87" y1="266" x2="87" y2="280" stroke="var(--b)" stroke-width="0.5"/>
+  <g class="c-blue">
+    <rect x="24" y="280" width="126" height="28" rx="6" stroke-width="0.5"/>
+    <text class="ts" x="87" y="294" text-anchor="middle" dominant-baseline="central">LeftContinent.qml</text>
+  </g>
+  <line x1="87" y1="308" x2="87" y2="322" stroke="var(--b)" stroke-width="0.5"/>
+  <g class="c-blue">
+    <rect x="24" y="322" width="126" height="28" rx="6" stroke-width="0.5"/>
+    <text class="ts" x="87" y="336" text-anchor="middle" dominant-baseline="central">RightContinent.qml</text>
+  </g>
+  <!-- sub-label islands/ -->
+  <text class="ts" x="87" y="362" text-anchor="middle" dominant-baseline="central" opacity="0.6">islands/</text>
+  <line x1="87" y1="370" x2="87" y2="384" stroke="var(--b)" stroke-width="0.5"/>
+  <g class="c-blue">
+    <rect x="24" y="384" width="126" height="28" rx="6" stroke-width="0.5"/>
+    <text class="ts" x="87" y="398" text-anchor="middle" dominant-baseline="central">WorkspaceIsland.qml</text>
+  </g>
+  <line x1="87" y1="412" x2="87" y2="426" stroke="var(--b)" stroke-width="0.5"/>
+  <g class="c-blue">
+    <rect x="24" y="426" width="126" height="28" rx="6" stroke-width="0.5"/>
+    <text class="ts" x="87" y="440" text-anchor="middle" dominant-baseline="central">ClockIsland.qml</text>
+  </g>
+  <line x1="87" y1="454" x2="87" y2="468" stroke="var(--b)" stroke-width="0.5"/>
+  <g class="c-blue">
+    <rect x="24" y="468" width="126" height="28" rx="6" stroke-width="0.5"/>
+    <text class="ts" x="87" y="482" text-anchor="middle" dominant-baseline="central">TrayIsland.qml</text>
+  </g>
+
+  <!-- ===== SERVICES column ===== -->
+  <line x1="213" y1="152" x2="213" y2="172" stroke="var(--b)" stroke-width="0.5"/>
+  <g class="c-teal">
+    <rect x="152" y="172" width="122" height="28" rx="6" stroke-width="0.5"/>
+    <text class="ts" x="213" y="186" text-anchor="middle" dominant-baseline="central">SystemMetrics.qml</text>
+  </g>
+  <line x1="213" y1="200" x2="213" y2="214" stroke="var(--b)" stroke-width="0.5"/>
+  <g class="c-teal">
+    <rect x="152" y="214" width="122" height="28" rx="6" stroke-width="0.5"/>
+    <text class="ts" x="213" y="228" text-anchor="middle" dominant-baseline="central">NetworkService.qml</text>
+  </g>
+  <line x1="213" y1="242" x2="213" y2="256" stroke="var(--b)" stroke-width="0.5"/>
+  <g class="c-teal">
+    <rect x="152" y="256" width="122" height="28" rx="6" stroke-width="0.5"/>
+    <text class="ts" x="213" y="270" text-anchor="middle" dominant-baseline="central">AudioService.qml</text>
+  </g>
+  <line x1="213" y1="284" x2="213" y2="298" stroke="var(--b)" stroke-width="0.5"/>
+  <g class="c-teal">
+    <rect x="152" y="298" width="122" height="28" rx="6" stroke-width="0.5"/>
+    <text class="ts" x="213" y="312" text-anchor="middle" dominant-baseline="central">HyprlandService.qml</text>
+  </g>
+  <line x1="213" y1="326" x2="213" y2="340" stroke="var(--b)" stroke-width="0.5"/>
+  <g class="c-teal">
+    <rect x="152" y="340" width="122" height="28" rx="6" stroke-width="0.5"/>
+    <text class="ts" x="213" y="354" text-anchor="middle" dominant-baseline="central">NotifService.qml</text>
+  </g>
+  <line x1="213" y1="368" x2="213" y2="382" stroke="var(--b)" stroke-width="0.5"/>
+  <g class="c-teal">
+    <rect x="152" y="382" width="122" height="28" rx="6" stroke-width="0.5"/>
+    <text class="ts" x="213" y="396" text-anchor="middle" dominant-baseline="central">CliphistService.qml</text>
+  </g>
+
+  <!-- ===== OVERLAYS column ===== -->
+  <line x1="339" y1="152" x2="339" y2="172" stroke="var(--b)" stroke-width="0.5"/>
+  <g class="c-coral">
+    <rect x="278" y="172" width="122" height="28" rx="6" stroke-width="0.5"/>
+    <text class="ts" x="339" y="186" text-anchor="middle" dominant-baseline="central">PowerMenu.qml</text>
+  </g>
+  <line x1="339" y1="200" x2="339" y2="214" stroke="var(--b)" stroke-width="0.5"/>
+  <g class="c-coral">
+    <rect x="278" y="214" width="122" height="28" rx="6" stroke-width="0.5"/>
+    <text class="ts" x="339" y="228" text-anchor="middle" dominant-baseline="central">NetworkPanel.qml</text>
+  </g>
+  <line x1="339" y1="242" x2="339" y2="256" stroke="var(--b)" stroke-width="0.5"/>
+  <g class="c-coral">
+    <rect x="278" y="256" width="122" height="28" rx="6" stroke-width="0.5"/>
+    <text class="ts" x="339" y="270" text-anchor="middle" dominant-baseline="central">VolumePanel.qml</text>
+  </g>
+  <line x1="339" y1="284" x2="339" y2="298" stroke="var(--b)" stroke-width="0.5"/>
+  <g class="c-coral">
+    <rect x="278" y="298" width="122" height="28" rx="6" stroke-width="0.5"/>
+    <text class="ts" x="339" y="312" text-anchor="middle" dominant-baseline="central">SysInfoPanel.qml</text>
+  </g>
+  <line x1="339" y1="326" x2="339" y2="340" stroke="var(--b)" stroke-width="0.5"/>
+  <g class="c-coral">
+    <rect x="278" y="340" width="122" height="28" rx="6" stroke-width="0.5"/>
+    <text class="ts" x="339" y="354" text-anchor="middle" dominant-baseline="central">CalendarPanel.qml</text>
+  </g>
+  <line x1="339" y1="368" x2="339" y2="382" stroke="var(--b)" stroke-width="0.5"/>
+  <g class="c-coral">
+    <rect x="278" y="382" width="122" height="28" rx="6" stroke-width="0.5"/>
+    <text class="ts" x="339" y="396" text-anchor="middle" dominant-baseline="central">Launcher.qml</text>
+  </g>
+  <line x1="339" y1="410" x2="339" y2="424" stroke="var(--b)" stroke-width="0.5"/>
+  <g class="c-coral">
+    <rect x="278" y="424" width="122" height="28" rx="6" stroke-width="0.5"/>
+    <text class="ts" x="339" y="438" text-anchor="middle" dominant-baseline="central">NotifShade.qml</text>
+  </g>
+  <line x1="339" y1="452" x2="339" y2="466" stroke="var(--b)" stroke-width="0.5"/>
+  <g class="c-coral">
+    <rect x="278" y="466" width="122" height="28" rx="6" stroke-width="0.5"/>
+    <text class="ts" x="339" y="480" text-anchor="middle" dominant-baseline="central">OSD.qml</text>
+  </g>
+
+  <!-- ===== WIDGETS column ===== -->
+  <line x1="465" y1="152" x2="465" y2="172" stroke="var(--b)" stroke-width="0.5"/>
+  <g class="c-amber">
+    <rect x="404" y="172" width="122" height="28" rx="6" stroke-width="0.5"/>
+    <text class="ts" x="465" y="186" text-anchor="middle" dominant-baseline="central">MetricChip.qml</text>
+  </g>
+  <line x1="465" y1="200" x2="465" y2="214" stroke="var(--b)" stroke-width="0.5"/>
+  <g class="c-amber">
+    <rect x="404" y="214" width="122" height="28" rx="6" stroke-width="0.5"/>
+    <text class="ts" x="465" y="228" text-anchor="middle" dominant-baseline="central">InvertedCorner.qml</text>
+  </g>
+  <line x1="465" y1="242" x2="465" y2="256" stroke="var(--b)" stroke-width="0.5"/>
+  <g class="c-amber">
+    <rect x="404" y="256" width="122" height="28" rx="6" stroke-width="0.5"/>
+    <text class="ts" x="465" y="270" text-anchor="middle" dominant-baseline="central">CircleToggle.qml</text>
+  </g>
+  <line x1="465" y1="284" x2="465" y2="298" stroke="var(--b)" stroke-width="0.5"/>
+  <g class="c-amber">
+    <rect x="404" y="298" width="122" height="28" rx="6" stroke-width="0.5"/>
+    <text class="ts" x="465" y="312" text-anchor="middle" dominant-baseline="central">GraphView.qml</text>
+  </g>
+  <line x1="465" y1="326" x2="465" y2="340" stroke="var(--b)" stroke-width="0.5"/>
+  <g class="c-amber">
+    <rect x="404" y="340" width="122" height="28" rx="6" stroke-width="0.5"/>
+    <text class="ts" x="465" y="354" text-anchor="middle" dominant-baseline="central">TooltipPopup.qml</text>
+  </g>
+  <line x1="465" y1="368" x2="465" y2="382" stroke="var(--b)" stroke-width="0.5"/>
+  <g class="c-amber">
+    <rect x="404" y="382" width="122" height="28" rx="6" stroke-width="0.5"/>
+    <text class="ts" x="465" y="396" text-anchor="middle" dominant-baseline="central">TabBar.qml</text>
+  </g>
+  <line x1="465" y1="410" x2="465" y2="424" stroke="var(--b)" stroke-width="0.5"/>
+  <g class="c-amber">
+    <rect x="404" y="424" width="122" height="28" rx="6" stroke-width="0.5"/>
+    <text class="ts" x="465" y="438" text-anchor="middle" dominant-baseline="central">AnimButton.qml</text>
+  </g>
+
+  <!-- ===== THEME column ===== -->
+  <line x1="591" y1="152" x2="591" y2="172" stroke="var(--b)" stroke-width="0.5"/>
+  <g class="c-gray">
+    <rect x="530" y="172" width="122" height="28" rx="6" stroke-width="0.5"/>
+    <text class="ts" x="591" y="186" text-anchor="middle" dominant-baseline="central">Colors.qml</text>
+  </g>
+  <line x1="591" y1="200" x2="591" y2="214" stroke="var(--b)" stroke-width="0.5"/>
+  <g class="c-gray">
+    <rect x="530" y="214" width="122" height="28" rx="6" stroke-width="0.5"/>
+    <text class="ts" x="591" y="228" text-anchor="middle" dominant-baseline="central">Typography.qml</text>
+  </g>
+  <line x1="591" y1="242" x2="591" y2="256" stroke="var(--b)" stroke-width="0.5"/>
+  <g class="c-gray">
+    <rect x="530" y="256" width="122" height="28" rx="6" stroke-width="0.5"/>
+    <text class="ts" x="591" y="270" text-anchor="middle" dominant-baseline="central">Easing.qml</text>
+  </g>
+  <line x1="591" y1="284" x2="591" y2="298" stroke="var(--b)" stroke-width="0.5"/>
+  <g class="c-gray">
+    <rect x="530" y="298" width="122" height="28" rx="6" stroke-width="0.5"/>
+    <text class="ts" x="591" y="312" text-anchor="middle" dominant-baseline="central">Sizes.qml</text>
+  </g>
+
+  <!-- Legend -->
+  <rect x="40" y="530" width="600" height="110" rx="10" fill="none" stroke="var(--b)" stroke-width="0.5" opacity="0.4"/>
+  <text class="ts" x="340" y="548" text-anchor="middle" dominant-baseline="central" opacity="0.7">Legend</text>
+
+  <rect x="64" y="563" width="14" height="14" rx="3" class="c-blue"/>
+  <text class="ts" x="86" y="570" dominant-baseline="central">bar/ — top panel structure</text>
+
+  <rect x="64" y="587" width="14" height="14" rx="3" class="c-teal"/>
+  <text class="ts" x="86" y="594" dominant-baseline="central">services/ — singleton data providers (QtObject, no UI)</text>
+
+  <rect x="350" y="563" width="14" height="14" rx="3" class="c-coral"/>
+  <text class="ts" x="372" y="570" dominant-baseline="central">overlays/ — floating panels and OSD</text>
+
+  <rect x="350" y="587" width="14" height="14" rx="3" class="c-amber"/>
+  <text class="ts" x="372" y="594" dominant-baseline="central">widgets/ — reusable primitive components</text>
+
+  <rect x="64" y="611" width="14" height="14" rx="3" class="c-gray"/>
+  <text class="ts" x="86" y="618" dominant-baseline="central">theme/ — Catppuccin Mocha tokens, easing, sizing constants</text>
+
+  <!-- Notes section -->
+  <text class="ts" x="40" y="668" dominant-baseline="central" opacity="0.8">Key design rules for this structure:</text>
+  <text class="ts" x="40" y="692" dominant-baseline="central" opacity="0.65">→  SystemMetrics.qml is the single polling process (1s timer, all metrics in one Bash/Process call)</text>
+  <text class="ts" x="40" y="712" dominant-baseline="central" opacity="0.65">→  Services expose properties only — no anchors, no visual items</text>
+  <text class="ts" x="40" y="732" dominant-baseline="central" opacity="0.65">→  Overlays are PanelWindow with ShaderEffect for inverted corner masking</text>
+  <text class="ts" x="40" y="752" dominant-baseline="central" opacity="0.65">→  Widgets are pure QML components — no service imports, accept data via properties</text>
+  <text class="ts" x="40" y="772" dominant-baseline="central" opacity="0.65">→  bar/continents/ and bar/islands/ can be sub-folders within bar/ as the panel grows</text>
+</svg>
