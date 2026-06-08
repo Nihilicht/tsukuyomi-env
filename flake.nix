@@ -29,7 +29,7 @@
           exec ${pkgs.satty}/bin/satty "$@"
         '';
 
-        devPath = builtins.getEnv "NIX_DEV_DOTFILES";
+        devPath = builtins.getEnv "TSUKUYOMI_DEV_PATH";
         
         # Strict validation: Path exists + is a git repo + correct remote
         isDev = 
