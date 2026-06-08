@@ -1,4 +1,0 @@
-[[language]]
-name = "qml"
-roots = ["shell.qml", "qmldir"]
-language-servers = ["qml-language-server"]

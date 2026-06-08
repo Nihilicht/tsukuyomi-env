@@ -1,12 +1,15 @@
+local success, paths = pcall(require, "paths")
+if not success then paths = require("fallback_paths") end
+
 return {
     app = {
-        terminal = "kitty",
-        fileManager = "dolphin",
-        browser = "helium"
+        terminal = paths.kitty,
+        fileManager = paths.dolphin,
+        browser = paths.helium
     },
     rofi = {
-        menu = "rofi -show drun",
-        keys = "rofi -show keys",
-        clipboard = "rofi -show clipboard",
+        menu = paths.rofi .. " -show drun",
+        keys = paths.rofi .. " -show keys",
+        clipboard = paths.rofi .. " -show clipboard",
     }
 }

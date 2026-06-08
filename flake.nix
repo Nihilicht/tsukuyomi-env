@@ -1,37 +1,105 @@
 {
-  outputs = { self, ... }: {
-    # Using 'nixosModules' to satisfy the flake schema check
-    nixosModules.default = { config, lib, pkgs, ... }: 
+  inputs = {
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    quickshell = {
+      url = "git+https://git.outfoxxed.me/outfoxxed/quickshell?ref=refs/tags/v0.3.0";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    qml-language-server = {
+      url = "github:cushycush/qml-language-server";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    helium = {
+      url = "github:schembriaiden/helium-browser-nix-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+  };
+
+  outputs = { self, nixpkgs, ... }@inputs: {
+    # Standard Home Manager module export
+    homeManagerModules.default = { config, lib, pkgs, nixataraxia ? null, userData ? null, ... }: 
       let
         core = import ./core.nix { inherit pkgs; };
+        
+        sattyWrapped = if nixataraxia != null then nixataraxia.wrapWithDeps {
+          package = pkgs.satty;
+          deps = [ pkgs.wl-clipboard ];
+        } else pkgs.writeShellScriptBin "satty" ''
+          export PATH="${pkgs.wl-clipboard}/bin:$PATH"
+          exec ${pkgs.satty}/bin/satty "$@"
+        '';
+
         devPath = builtins.getEnv "NIX_DEV_DOTFILES";
         
         # Strict validation: Path exists + is a git repo + correct remote
         isDev = 
-          let
-            gitConfigPath = "${devPath}/.git/config";
-            expectedRemote = "url = https://github.com/Nihilicht/tsukuyomi-env.git";
-          in
-            devPath != "" 
-            && builtins.pathExists gitConfigPath
-            && lib.strings.hasInfix expectedRemote (builtins.readFile gitConfigPath);
+          if config.env.devPath != null then true
+          else if devPath != "" then
+            let
+              gitConfigPath = "${devPath}/.git/config";
+              expectedRemote = "url = https://github.com/Nihilicht/tsukuyomi-env.git";
+            in
+              builtins.pathExists gitConfigPath
+              && lib.strings.hasInfix expectedRemote (builtins.readFile gitConfigPath)
+          else false;
         
         # The "Smart Switch": Symlink to local path in dev, Copy to Nix store in pure
         mkSource = path:
+          let
+            targetPath = if config.env.devPath != null then config.env.devPath else devPath;
+          in
           if isDev
-          then config.lib.file.mkOutOfStoreSymlink "${devPath}/${path}"
+          then config.lib.file.mkOutOfStoreSymlink "${targetPath}/${path}"
           else ./${path};
       in {
-        options.myEnv.enable = lib.mkEnableOption "My Environment";
-        config = lib.mkIf config.myEnv.enable {
+        options.env = {
+          enable = lib.mkEnableOption "Desktop Environment";
+          devPath = lib.mkOption {
+            type = lib.types.nullOr lib.types.str;
+            default = null;
+            description = "Absolute path to the local repository for development/symlinking.";
+          };
+        };
+
+        config = lib.mkIf config.env.enable {
           # 1. Auto-install all packages from core.nix
           home.packages = core.packages;
+
           # 2. Auto-link all configs from core.nix
           xdg.configFile = builtins.listToAttrs (map (path: {
             name = path;
             value = { source = mkSource path; };
-          }) core.configs);
+          }) core.configs) // {
+            # 3. Dynamically generated Lua module for absolute paths!
+            "hypr/paths.lua".text = ''
+              return {
+                rofi = "${pkgs.rofi}/bin/rofi",
+                grim = "${pkgs.grim}/bin/grim",
+                slurp = "${pkgs.slurp}/bin/slurp",
+                satty = "${sattyWrapped}/bin/satty",
+                cliphist = "${pkgs.cliphist}/bin/cliphist",
+                wl_copy = "${pkgs.wl-clipboard}/bin/wl-copy",
+                wl_paste = "${pkgs.wl-clipboard}/bin/wl-paste",
+                kitty = "${pkgs.kitty}/bin/kitty",
+                uwsm = "${pkgs.uwsm}/bin/uwsm",
+                dolphin = "${pkgs.kdePackages.dolphin}/bin/dolphin",
+                helium = "${pkgs.helium}/bin/helium",
+                quickshell = "${pkgs.quickshell}/bin/qs",
+                pavucontrol = "${pkgs.pavucontrol}/bin/pavucontrol"
+              }
+            '';
+          };
         };
       };
+
+    # Define overlay for quickshell and qml-language-server
+    overlays.default = final: prev: {
+      quickshell = inputs.quickshell.packages.${prev.stdenv.hostPlatform.system}.default;
+      qml-language-server = inputs.qml-language-server.packages.${prev.stdenv.hostPlatform.system}.default;
+      helium = inputs.helium.packages.${prev.stdenv.hostPlatform.system}.default;
+    };
+
+    # Backwards compatibility / NixOS module mapping
+    nixosModules.default = self.homeManagerModules.default;
   };
 }

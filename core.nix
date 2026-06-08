@@ -4,28 +4,17 @@
     hyprland
     uwsm
     
-    # Shell & Desktop
-    quickshell
-    rofi-wayland
-    kitty
-    dolphin
-    
-    # System Utilities
-    grim
-    slurp
-    satty
-    pavucontrol
-    wl-clipboard
-    cliphist
-    
-    # CLI Tools & Shell
-    starship
-    atuin
-    zoxide
-    jq
-    
     # Theming
     bibata-cursors
+  ];
+  configs = [
+    "gtk-3.0"
+    "gtk-4.0"
+    "hypr"
+    "kitty"
+    "quickshell"
+    "rofi"
+    "satty"
   ];
   configPath = ./.; 
 }

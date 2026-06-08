@@ -1,4 +1,6 @@
 local vars = require("vars")
+local success, paths = pcall(require, "paths")
+if not success then paths = require("fallback_paths") end
 
 -- ============================================================================
 -- Monitors
@@ -29,9 +31,9 @@ hl.env("XCURSOR_SIZE", "20")
 -- ============================================================================
 
 local startup = function()
-    hl.exec_cmd("uwsm app -u quickshell.scope -- qs")
-    hl.exec_cmd("uwsm app -u cliphist-text.scope -- wl-paste --type text --watch cliphist store")
-    hl.exec_cmd("uwsm app -u cliphist-image.scope -- wl-paste --type image --watch cliphist store")
+    hl.exec_cmd(paths.uwsm .. " app -u quickshell.scope -- " .. paths.quickshell)
+    hl.exec_cmd(paths.uwsm .. " app -u cliphist-text.scope -- " .. paths.wl_paste .. " --type text --watch " .. paths.cliphist .. " store")
+    hl.exec_cmd(paths.uwsm .. " app -u cliphist-image.scope -- " .. paths.wl_paste .. " --type image --watch " .. paths.cliphist .. " store")
 end
 
 hl.on("hyprland.start", function()
@@ -148,9 +150,9 @@ hl.bind("SUPER + K", hl.dsp.exec_cmd(vars.rofi.keys))
 hl.bind("SUPER + V", hl.dsp.exec_cmd(vars.rofi.clipboard))
 
 -- System & Session
-hl.bind("SUPER + ESCAPE", hl.dsp.exec_cmd("uwsm stop"))
+hl.bind("SUPER + ESCAPE", hl.dsp.exec_cmd(paths.uwsm .. " stop"))
 hl.bind("SUPER + L", hl.dsp.exec_cmd("loginctl lock-session"))
-hl.bind("CTRL + ALT + Delete", hl.dsp.exec_cmd("qs ipc call power-control open"))
+hl.bind("CTRL + ALT + Delete", hl.dsp.exec_cmd(paths.quickshell .. " ipc call power-control open"))
 hl.bind("SUPER + SHIFT + R", function()
     startup()
 end)
@@ -220,13 +222,13 @@ hl.bind("XF86AudioMicMute", hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SOU
 -- hl.bind("XF86AudioPrev",  hl.dsp.exec_cmd("playerctl previous"),   { locked = true })
 
 -- Volume (Function Keys)
-hl.bind("F8", hl.dsp.exec_cmd("pavucontrol", { float = true, size = { 800, 600 }, center = true }))
+hl.bind("F8", hl.dsp.exec_cmd(paths.pavucontrol, { float = true, size = { 800, 600 }, center = true }))
 hl.bind("F9", hl.dsp.exec_cmd("wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%-"))
 hl.bind("F10", hl.dsp.exec_cmd("wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"))
 
 -- Screenshots
-hl.bind("Print", hl.dsp.exec_cmd("grim - | satty -f -"))
-hl.bind("SUPER + SHIFT + S", hl.dsp.exec_cmd("grim -g \"$(slurp)\" - | satty -f -"))
+hl.bind("Print", hl.dsp.exec_cmd(paths.grim .. " - | " .. paths.satty .. " -f -"))
+hl.bind("SUPER + SHIFT + S", hl.dsp.exec_cmd(paths.grim .. " -g \"$(" .. paths.slurp .. ")\" - | " .. paths.satty .. " -f -"))
 
 -- Submaps
 hl.bind("SUPER + R", hl.dsp.submap("resize"))
