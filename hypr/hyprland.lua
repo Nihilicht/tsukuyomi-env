@@ -31,9 +31,9 @@ hl.env("XCURSOR_SIZE", "20")
 -- ============================================================================
 
 local startup = function()
-    hl.exec_cmd(paths.uwsm .. " app -u quickshell.scope -- " .. paths.quickshell)
-    hl.exec_cmd(paths.uwsm .. " app -u cliphist-text.scope -- " .. paths.wl_paste .. " --type text --watch " .. paths.cliphist .. " store")
-    hl.exec_cmd(paths.uwsm .. " app -u cliphist-image.scope -- " .. paths.wl_paste .. " --type image --watch " .. paths.cliphist .. " store")
+    hl.exec_cmd("uwsm app -u quickshell.scope -- " .. paths.quickshell)
+    hl.exec_cmd("uwsm app -u cliphist-text.scope -- " .. paths.wl_paste .. " --type text --watch " .. paths.cliphist .. " store")
+    hl.exec_cmd("uwsm app -u cliphist-image.scope -- " .. paths.wl_paste .. " --type image --watch " .. paths.cliphist .. " store")
 end
 
 hl.on("hyprland.start", function()
@@ -150,7 +150,7 @@ hl.bind("SUPER + K", hl.dsp.exec_cmd(vars.rofi.keys))
 hl.bind("SUPER + V", hl.dsp.exec_cmd(vars.rofi.clipboard))
 
 -- System & Session
-hl.bind("SUPER + ESCAPE", hl.dsp.exec_cmd(paths.uwsm .. " stop"))
+hl.bind("SUPER + ESCAPE", hl.dsp.exec_cmd("uwsm stop"))
 hl.bind("SUPER + L", hl.dsp.exec_cmd("loginctl lock-session"))
 hl.bind("CTRL + ALT + Delete", hl.dsp.exec_cmd(paths.quickshell .. " ipc call power-control open"))
 hl.bind("SUPER + SHIFT + R", function()

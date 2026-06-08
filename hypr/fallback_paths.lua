@@ -7,7 +7,6 @@ local cmds = {
     wl_copy = "wl-copy",
     wl_paste = "wl-paste",
     kitty = "kitty",
-    uwsm = "uwsm",
     dolphin = "dolphin",
     helium = "helium",
     quickshell = "qs",

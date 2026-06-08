@@ -81,7 +81,6 @@
                 wl_copy = "${pkgs.wl-clipboard}/bin/wl-copy",
                 wl_paste = "${pkgs.wl-clipboard}/bin/wl-paste",
                 kitty = "${pkgs.kitty}/bin/kitty",
-                uwsm = "${pkgs.uwsm}/bin/uwsm",
                 dolphin = "${pkgs.kdePackages.dolphin}/bin/dolphin",
                 helium = "${pkgs.helium}/bin/helium",
                 quickshell = "${pkgs.quickshell}/bin/qs",
