@@ -62,6 +62,17 @@
         };
 
         config = lib.mkIf config.env.enable {
+          assertions = [
+            {
+              # tsukuyomi-env acts purely as an isolated environment config.
+              # The host system MUST provide the entry points.
+              assertion = (builtins.elem pkgs.uwsm config.home.packages) 
+                       || (builtins.elem pkgs.hyprland config.home.packages)
+                       || (config.wayland.windowManager.hyprland.enable or false);
+              message = "tsukuyomi-env requires `uwsm` and/or `hyprland` to be provided by the host configuration. Please add them to your environment.";
+            }
+          ];
+
           # 1. Auto-install all packages from core.nix
           home.packages = core.packages;
 

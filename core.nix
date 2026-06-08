@@ -1,9 +1,5 @@
 { pkgs }: {
   packages = with pkgs; [
-    # Compositor & Session
-    hyprland
-    uwsm
-    
     # Theming
     bibata-cursors
   ];
