@@ -79,9 +79,16 @@
           # 2. Auto-link all configs from core.nix
           xdg.configFile = builtins.listToAttrs (map (path: {
             name = path;
-            value = { source = mkSource path; };
+            value = { 
+              source = mkSource path; 
+              recursive = !isDev; # Enable recursion in pure mode to allow file-level merging
+            };
           }) core.configs) // {
             # 3. Dynamically generated Lua module for absolute paths!
+            # Note: In dev mode (isDev=true), this entry may cause a collision if ~/.config/hypr 
+            # is a symlink to your local folder. Home Manager handles this by throwing an error.
+            # To fix this in dev mode, you'd usually exclude 'hypr' from core.configs and 
+            # link its contents individually, or ignore paths.lua in your local repo.
             "hypr/paths.lua".text = ''
               return {
                 rofi = "${pkgs.rofi}/bin/rofi",
