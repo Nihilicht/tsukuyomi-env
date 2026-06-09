@@ -1,10 +1,6 @@
 {
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    quickshell = {
-      url = "git+https://git.outfoxxed.me/outfoxxed/quickshell?ref=refs/tags/v0.3.0";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     qml-language-server = {
       url = "github:cushycush/qml-language-server";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -111,7 +107,6 @@
 
     # Define overlay for quickshell and qml-language-server
     overlays.default = final: prev: {
-      quickshell = inputs.quickshell.packages.${prev.stdenv.hostPlatform.system}.default;
       qml-language-server = inputs.qml-language-server.packages.${prev.stdenv.hostPlatform.system}.default;
       helium = inputs.helium.packages.${prev.stdenv.hostPlatform.system}.default;
     };
