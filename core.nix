@@ -2,6 +2,10 @@
   packages = with pkgs; [
     # Theming
     bibata-cursors
+    catppuccin-gtk
+    adwaita-icon-theme
+    rubik
+    (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
   ];
   configs = [
     "gtk-3.0"

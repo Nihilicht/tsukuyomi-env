@@ -72,7 +72,10 @@
           # 1. Auto-install all packages from core.nix
           home.packages = core.packages;
 
-          # 2. Auto-link all configs from core.nix
+          # 2. Enable fontconfig to make fonts available
+          fonts.fontconfig.enable = true;
+
+          # 3. Auto-link all configs from core.nix
           xdg.configFile = builtins.listToAttrs (map (path: {
             name = path;
             value = { 
