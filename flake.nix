@@ -103,7 +103,14 @@
             };
           };
 
-          # 4. Auto-link all configs from core.nix
+          # 4. System-wide Dark Mode (for Browsers/Portals)
+          dconf.settings = {
+            "org/gnome/desktop/interface" = {
+              color-scheme = "prefer-dark";
+            };
+          };
+
+          # 5. Auto-link all configs from core.nix
           xdg.configFile = builtins.listToAttrs (map (path: {
             name = path;
             value = { 
