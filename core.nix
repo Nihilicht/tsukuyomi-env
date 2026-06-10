@@ -5,7 +5,7 @@
     catppuccin-gtk
     adwaita-icon-theme
     rubik
-    (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
+    nerd-fonts.jetbrains-mono
   ];
   configs = [
     "hypr"
