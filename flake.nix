@@ -75,7 +75,35 @@
           # 2. Enable fontconfig to make fonts available
           fonts.fontconfig.enable = true;
 
-          # 3. Auto-link all configs from core.nix
+          # 3. Native GTK Theming
+          gtk = {
+            enable = true;
+            theme = {
+              name = "Catppuccin-Mocha-Standard-Blue-Dark";
+              package = pkgs.catppuccin-gtk;
+            };
+            iconTheme = {
+              name = "Adwaita";
+              package = pkgs.adwaita-icon-theme;
+            };
+            cursorTheme = {
+              name = "Bibata-Modern-Ice";
+              package = pkgs.bibata-cursors;
+            };
+            font = {
+              name = "Rubik";
+              size = 11;
+              package = pkgs.rubik;
+            };
+            gtk3.extraConfig = {
+              gtk-application-prefer-dark-theme = 1;
+            };
+            gtk4.extraConfig = {
+              gtk-application-prefer-dark-theme = 1;
+            };
+          };
+
+          # 4. Auto-link all configs from core.nix
           xdg.configFile = builtins.listToAttrs (map (path: {
             name = path;
             value = { 

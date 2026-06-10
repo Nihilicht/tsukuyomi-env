@@ -8,8 +8,6 @@
     (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
   ];
   configs = [
-    "gtk-3.0"
-    "gtk-4.0"
     "hypr"
     "kitty"
     "quickshell"
