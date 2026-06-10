@@ -72,6 +72,10 @@
           # 1. Auto-install all packages from core.nix
           home.packages = core.packages;
 
+          home.sessionVariables = {
+            GTK_USE_PORTAL = "1";
+          };
+
           # 2. Enable fontconfig to make fonts available
           fonts.fontconfig.enable = true;
 
@@ -80,7 +84,10 @@
             enable = true;
             theme = {
               name = "Catppuccin-Mocha-Standard-Blue-Dark";
-              package = pkgs.catppuccin-gtk;
+              package = pkgs.catppuccin-gtk.override {
+                variant = "mocha";
+                accents = [ "blue" ];
+              };
             };
             iconTheme = {
               name = "Adwaita";
