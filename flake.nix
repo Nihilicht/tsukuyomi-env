@@ -74,7 +74,7 @@
 
           home.sessionVariables = {
             GTK_USE_PORTAL = "1";
-            GTK_THEME = "Catppuccin-Mocha-Standard-Blue-Dark";
+            GTK_THEME = "catppuccin-mocha-blue-standard";
           };
 
           # 2. Enable fontconfig to make fonts available
@@ -84,7 +84,7 @@
           gtk = {
             enable = true;
             theme = {
-              name = "Catppuccin-Mocha-Standard-Blue-Dark";
+              name = "catppuccin-mocha-blue-standard";
               package = pkgs.catppuccin-gtk.override {
                 variant = "mocha";
                 accents = [ "blue" ];
@@ -115,7 +115,7 @@
           dconf.settings = {
             "org/gnome/desktop/interface" = {
               color-scheme = "prefer-dark";
-              gtk-theme = "Catppuccin-Mocha-Standard-Blue-Dark";
+              gtk-theme = "catppuccin-mocha-blue-standard";
             };
           };
 
