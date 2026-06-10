@@ -74,6 +74,7 @@
 
           home.sessionVariables = {
             GTK_USE_PORTAL = "1";
+            GTK_THEME = "Catppuccin-Mocha-Standard-Blue-Dark";
           };
 
           # 2. Enable fontconfig to make fonts available
